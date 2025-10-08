@@ -158,10 +158,8 @@
 
 </body>
 <script>
-  const DEFAULT_EMAIL="anJmcnFxaGZ3MWZycXdkZndDanBkbG8xZnJw";const SHIFT=3;function decodeEmail(b64,shift){const bin=atob(b64);const bytes=new Uint8Array([...bin].map((ch)=>ch.charCodeAt(0)-shift));return new TextDecoder().decode(bytes)}
-  function openMailClient({subject='',body=''}={}){console.log('DEFAULT_EMAIL=',DEFAULT_EMAIL)
-  console.log('email=',decodeEmail(DEFAULT_EMAIL,SHIFT))
-  const email=decodeEmail(DEFAULT_EMAIL,SHIFT);const s=encodeURIComponent(subject);const b=encodeURIComponent(body);const query=(s||b)?`?subject=${s}&body=${b}`:'';const mailto=`mailto:${email}${query}`;const a=document.createElement('a');a.style.display='none';a.href=mailto;a.rel='noopener noreferrer';document.body.appendChild(a);a.click();document.body.removeChild(a)}
-  document.getElementById('contact-link').addEventListener('click',function(e){e.preventDefault();setTimeout(()=>{openMailClient({subject:'ติดต่อจากเว็บไซต์',body:'กรุณากรอกข้อความของคุณที่นี่...\n\n—'})},150)})
+const DEFAULT_EMAIL="anJmcnFxaGZ3MWZycXdkZndDanBkbG8xZnJw";const SHIFT=3;function decodeEmail(b64,shift){const bin=atob(b64);const bytes=new Uint8Array([...bin].map((ch)=>ch.charCodeAt(0)-shift));return new TextDecoder().decode(bytes)}
+function openMailClient({subject='',body=''}={}){const email=decodeEmail(DEFAULT_EMAIL,SHIFT);const s=encodeURIComponent(subject);const b=encodeURIComponent(body);const query=(s||b)?`?subject=${s}&body=${b}`:'';const mailto=`mailto:${email}${query}`;const a=document.createElement('a');a.style.display='none';a.href=mailto;a.rel='noopener noreferrer';document.body.appendChild(a);a.click();document.body.removeChild(a)}
+document.getElementById('contact-link').addEventListener('click',function(e){e.preventDefault();setTimeout(()=>{openMailClient({subject:'ติดต่จากเว็บไซอต์',body:'กรุณากรอกข้อความของคุณที่นี่...\n\n—'})},150)})
 </script>
 </html>
